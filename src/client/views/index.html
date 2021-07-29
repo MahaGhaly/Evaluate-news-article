@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Test</title>
+    </head>
+
+    <body>
+
+        <header>
+            <h2 class="title">
+                Evaluate News
+            </h2>
+            
+        </header>
+
+        <main class="container">
+            <section>
+                <form id="form">
+                    <input id="article-url" type="text" name="input" value="" placeholder="Write article URL...">
+                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)"
+                        onsubmit="return handleSubmit(event)">
+                </form>
+            </section>
+
+            <section class="results">
+                <strong>Analysis Results:</strong>
+                <h2 id="agreement"></h2>
+                <h2 id="subjectivity"></h2>
+                <h2 id="confidence"></h2>
+                <h2 id="irony"></h2>
+                <h2 id="score"></h2>
+            </section>
+        </main>
+
+        <footer class="nav">
+            <ul>
+                <li><a href="https://www.udacity.com/">Udacity</a></li>
+            </ul>
+            <p class="copy">© 2021</p>
+        </footer>
+
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+        </script>
+    </body>
+</html>
